@@ -19,7 +19,9 @@ local options = {
     
     grid_opacity = 230,             -- A number from 0 to 256, 0 being completely opaque and 256 completely translucent
     show_predictions = true,        -- Whether or not to auto-predict walljumps/corner-clips automatically on screen
-    background = 150 * 16777216 + 0x000000           -- Background for all text
+    background = 150 * 16777216 + 0x000000,           -- Background for all text
+    
+    predict_opacity = 160
 }
 
 local addresses = {
@@ -147,16 +149,16 @@ function predict()
         local start = transform((xpos + width / 16) - (xpos + width / 16) % 16 + 16, ypos - ypos % 16 + 16)
         
         for i = start.x, global.wh - global.wh % scw + scw, scw do
-            local block_x = (i / global.xp + global.xcam) * 16
+            local block_x = untransform(i, 0).x * 16
             local frames = math.ceil((block_x - x - width) / xspeed)
             local temp_x = x + frames * xspeed
             local difference = (block_x - temp_x) / 16
             
             if difference < 11 and xspeed > 32 then
-                gui.rectangle(i, 0, 16 * global.xp, global.wh, 0xaaffff, 16777216 * 200 + 0xaaffff)
+                gui.rectangle(i, 0, 16 * global.xp, global.wh, 0xaaffff, 16777216 * options.predict_opacity + 0xaaffff)
             end
-            if (difference == 11 or difference < 10) and xspeed > 48 then
-                gui.rectangle(i, 0, 16 * global.xp, global.wh, 0xffaaff, 16777216 * 200 + 0xffaaff)
+            if (difference == 11.0625 or difference < 10) and xspeed > 48 then
+                gui.rectangle(i, 0, 16 * global.xp, global.wh, 0xffaaff, 16777216 * options.predict_opacity + 0xffaaff)
             end
             
             count = count + 1
@@ -167,19 +169,17 @@ function predict()
         start.x = start.x - start.x % 16
         start = transform(start.x, start.y)
         
-        for i = start.x, stop.x - stop.x % scw, scw do
+        for i = start.x, stop.x, scw do
             local block_x = untransform(i, 0).x * 16
-            local temp_x = x
-            while temp_x > block_x + width do
-                temp_x = temp_x + xspeed
-            end
+            local frames = math.ceil((block_x + width - x) / xspeed)
+            local temp_x = x + frames * xspeed
             local difference = (temp_x - block_x) / 16
             
             if difference < 11 and xspeed < -32 then
-                gui.rectangle(i, 0, 16 * global.xp, global.wh, 0xaaffff, 16777216 * 200 + 0xaaffff)
+                gui.rectangle(i, 0, 16 * global.xp, global.wh, 0xaaffff, 16777216 * options.predict_opacity + 0xaaffff)
             end
             if (difference == 11 or difference < 10) and xspeed < -48 then
-                gui.rectangle(i, 0, 16 * global.xp, global.wh, 0xffaaff, 16777216 * 200 + 0xffaaff)
+                gui.rectangle(i, 0, 16 * global.xp, global.wh, 0xffaaff, 16777216 * options.predict_opacity + 0xffaaff)
             end
             
             count = count + 1
