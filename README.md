@@ -10,15 +10,11 @@
 
 ## About
 
-> Note: If you are searching for a lua script created for *lsnes rr2-&beta;23* or higher, you can currently refer to [smw-tas](https://github.com/rodamaral/smw-tas), a great, highly functional, and very comprehensive lua script created by Amaraticando, the same person who has authored [smw-tas.blogspot.com](http://smw-tas.blogspot.com) and most recently [amaraticando.blogspot.com](http://amaraticando.blogspot.com).
+The life of a tool assisted speedrunner can be long, difficult, and repetitive. So we made a tool that streamlines your speedrunning experience&mdash;if you can stand the fact that you'll have less re-records at the end of your run.
 
-This is a basic lua script inspired by Bahamete's original [SMWUtils.lua](https://github.com/gocha/gocha-tas-legacy/blob/master/Scripts/SMWUtils.lua), Masterjun's block-info.lua, and ShadowDragon's nuanced yet mechanically 'finalized' [newLua.lua](http://bin.smwcentral.net/u/18906/newLua.lua). The only problem with these scripts is that they are created for the now considerably deprecated, though still very usable, Snes9x.
+Largely based upon the mechanistic aspect of ShadowDragon's NewLua. A lightweight version of Amaraticando's SMW-TAS. Get the essentials of Bahamete's SMWUtils, the astoundingly useful mechanics predictions in ShadowDragon's NewLua and Masterjun's BlockLua, all in a single 25kb package.
 
-This project was created as a from-scratch remake of specifically the latter script for the stable *lsnes rr1-&Delta;18&epsilon;3* using self-derived calculations (which I may later transcribe in detail).
-
-This is by no means an 'all-purpose' script. It has been intentionally designed around the mechanical aspects of the game only, as to avoid 'over-bloating' the features which this script represents.
-
-Some other noteworthy Lua scripts to mention here are [amaurea's script](http://tasvideos.org/forum/viewtopic.php?p=219824&highlight=#219824) for outputting TAS movie ghosts and re-drawing them during new runs for real-time comparison; and [Masterjun's SMW Atlas](http://pastebin.com/raw/DgVn8cEA) script for drawing offscreen map16 objects by directly referencing the game's storage facility for all layer-specific objects. Both of these are also implemented in Amaraticando's project.
+*Built for lsnes rr1-&Delta;18&epsilon;3*
 
 ## Instructions
 &rarr; Download or clone the repository into a memorable location.
@@ -27,10 +23,12 @@ Some other noteworthy Lua scripts to mention here are [amaurea's script](http://
 
 ## Features
 
-* Display of basic mechanistic values which are read directly from the in-game RAM: the player's velocity and position, sprites' velocities and positions, timers, etc.
+* Keep track of all basic mechanistic values you're expecting, such as the position and velocity of the player and all normal sprites, basic timers, etc. every single frame.
 
-* Prediction of walljumps and corner-clips for every tile on the screen; recalculated every frame.
+* Never worry about spending hours on a walljump or corner clip again, predict where you can corner clip and walljump for every part of the screen, every frame.
+
+* Streamline your corner clipping attempts with a timer that predicts how long you have to keep running in order to achieve corner clipping conditions.
 
 ## Requirements
 
-* lsnes rr1-&Delta;18&epsilon;3, or any version of lsnes which supports global memory references.
+* lsnes rr1-&Delta;18&epsilon;3, a beta- (rr2) compatible version will soon be built.
