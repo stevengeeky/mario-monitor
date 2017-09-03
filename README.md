@@ -31,4 +31,4 @@ Largely based upon the mechanistic aspect of ShadowDragon's NewLua. A lightweigh
 
 ## Requirements
 
-* lsnes rr1-&Delta;18&epsilon;3, a beta- (rr2) compatible version will soon be built.
+* lsnes rr1-&Delta;18&epsilon;3, a beta- (rr2) compatible version might be made eventually, see issues for an update.
