@@ -12,7 +12,7 @@
 
 The life of a tool assisted speedrunner can be long, difficult, and repetitive. So we made a tool that streamlines your speedrunning experience&mdash;if you can stand the fact that you'll have less re-records at the end of your run.
 
-Largely based upon the mechanistic aspect of ShadowDragon's NewLua. A lightweight version of Amaraticando's SMW-TAS. Get the essentials of Bahamete's SMWUtils, the astoundingly useful mechanics predictions in ShadowDragon's NewLua and Masterjun's BlockLua, all in a single 25kb package.
+Largely based upon the mechanistic aspect of ShadowDragon's NewLua. A lightweight version of Amaraticando's SMW-TAS. Get the essentials of Bahamete's SMWUtils, the astoundingly useful prediction mechanics in ShadowDragon's NewLua and Masterjun's BlockLua, all in a single 25kb package.
 
 *Built for lsnes rr1-&Delta;18&epsilon;3*
 
